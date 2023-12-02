@@ -15,17 +15,17 @@
 现在可以创建一个IEatBehavior接口, 把不同的Eat() 算法 交给实现这个接口的类(也可以叫IEatBehavior接口的实例).比如EatSlowly类,EatFast类.<br/>
 这样Cat和Dog类就不需要各自在自己的类中，去重写父类的Eat()方法，只需要调用接口的实例就可以调用Eat()方法.
 
-## 现在停止继承，使用Strategy Pattern 写一段代码
+## 现在停止继承! 使用Strategy Pattern 写一段代码
 
     public class Client{
-        IBehavior iB;
+        protected IBehavior iB;
         //构造函数,获取特定的Behavior
         public Client(IBehavior concreteIB){
             this.iB = concreteIbA;
         }
 
         public void execute(){
-            iB.run();
+            this.iB.run();
         }
         
     }
